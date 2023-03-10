@@ -26,11 +26,8 @@ WORKDIR /app
 COPY script.py .
 RUN chown automate script.py
 
-# Add the crontab file in the cron directory
-ADD crontab /etc/cron.d/cron-script-stage
-
-# Add cron variable to staged crontab
-RUN (echo $CRON; cat /etc/cron.d/cron-script-stage) > /etc/cron.d/cron-script && rm /etc/cron.d/cron-script-stage
+# Create crontab (default to on the hour)
+RUN echo ${CRON:-"0 * * * *"} "/usr/local/bin/python /app/script.py >> /var/log/cron.log 2>&1" >> /etc/cron.d/cron-script
 
 # Give execution rights on the cron job
 RUN chmod 0644 /etc/cron.d/cron-script
