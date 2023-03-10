@@ -41,4 +41,10 @@ If all appointments are taken, the script will print a message indicating that t
 
 ## Docker
 
-A Dockerfile is available for easy of automation. It sets up the Python environment, and runs the script on an hourly cron.
+A Dockerfile is available for easy of automation. It sets up the Python environment, and runs the script on an hourly cron configured at the OS level.
+
+To run, configure a cron similar to:
+
+```
+0 * * * * docker run --name coopscraper --rm zarguell/coopscraper
+```
