@@ -10,11 +10,13 @@ This script logs in to the Park Slope Food Coop website using Selenium, and chec
 
 ## Configuration
 
-Before running the script, you need to set three environment variables:
+Before running the script, you need to set these environment variables:
 
 - `WEBHOOK`: The Discord webhook URL to send notifications to
 - `USERNAME`: Your Park Slope Food Coop login username
 - `PASSWORD`: Your Park Slope Food Coop login password
+- `CRON`: Cron expression frequency to run script
+- `HEALTHCHECK`: Optional healthchecks.io endpoint to ping at your cron interval.
 
 You can set environment variables in your terminal session before running the script:
 
