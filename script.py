@@ -67,3 +67,9 @@ except WebDriverException:
 
 # Close the webdriver
 driver.quit()
+
+# Optional Feature, log a healthchecks.io healthcheck hourly.
+healthcheck_url = os.getenv('HEALTHCHECK')
+
+if healthcheck_url:
+    response = requests.get(healthcheck_url)
