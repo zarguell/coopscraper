@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.11-slim-bookworm
+FROM python:3.14-slim-bookworm
 
 # Install necessary packages
 RUN apt-get update && \
